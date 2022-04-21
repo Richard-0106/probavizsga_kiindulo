@@ -18,9 +18,12 @@ use App\Http\Controllers\UserController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('szakdogak');
 });
-
+Route::get('/szakdogak',[SzakdogaController::class,'index']);
+Route::post('/szakdogak',[SzakdogaController::class,'store']);
+Route::delete('/szakdogak/{id}',[SzakdogaController::class,'destroy']);
+Route::put('/szakdogak/{id}',[SzakdogaController::class,'update']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
